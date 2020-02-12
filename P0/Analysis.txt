@@ -1,0 +1,14 @@
+TASK 0:
+Approximate run time is O(0)
+
+TASK 1:
+Approximate run time is O(2n)
+
+TASK 2:
+Approximate run time is O(n)
+
+TASK 3:
+Approximate run time is O(2n)
+
+TASK 4:
+Approximate run time is O(3n)
