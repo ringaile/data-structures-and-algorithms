@@ -1,14 +1,19 @@
 TASK 0:
-Approximate run time is O(0)
+We just access the element in two arrays:
+Approximate run time is O(1)
 
 TASK 1:
-Approximate run time is O(2n)
-
-TASK 2:
+We have to loop through calls and texts once:
 Approximate run time is O(n)
 
+TASK 2:
+we have two loops, one is going through each element in calls O(n) and other one is nested loop O(nˆ2)
+Approximate run time is O(n + nˆ2)
+
 TASK 3:
-Approximate run time is O(2n)
+We have three loops going through calls (or subset of calls):
+Approximate run time is O(3n)
 
 TASK 4:
-Approximate run time is O(3n)
+We have two loops going throgh calls and texts:
+Approximate run time is O(n)

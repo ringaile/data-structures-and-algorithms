@@ -19,15 +19,13 @@ Print a message:
 "There are <count> different telephone numbers in the records."
 """
 
-numberList = []
+numberList = set()
 for item in texts:
-	numberList.append(str(item[0]))
-	numberList.append(str(item[1]))
+	numberList.add(item[0])
+	numberList.add(item[1])
 
 for item in calls:
-	numberList.append(str(item[0]))
-	numberList.append(str(item[1]))
+	numberList.add(item[0])
+	numberList.add(item[1])
 
-numberList = list(dict.fromkeys(numberList))
-
-print("There are " + str(len(numberList)) + " different telephone numbers in the records.")
+print('There are {} different telephone numbers in the records.'.format(len(numberList)))

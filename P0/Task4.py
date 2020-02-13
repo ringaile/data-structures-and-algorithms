@@ -26,24 +26,19 @@ The list of numbers should be print out one per line in lexicographic order with
 """
 
 # get all the unique outgoing numbers
-numberList = []
+outgoingcalls = set()
+incomingcalls = set()
 for item in calls:
-	numberList.append(item[0])
+	outgoingcalls.add(item[0])
+	incomingcalls.add(item[1])
 
-numberList = list(dict.fromkeys(numberList))
-
-# check if those numbers were in incoming list
-for item in calls:
-	if item[1] in numberList:
-		numberList.remove(item[1])
-
-# check if those numbers were in sms list
+allTexts = set()
 for item in texts:
-	if item[0] in numberList:
-		numberList.remove(item[0])
-	if item[1] in numberList:
-		numberList.remove(item[1])
+	allTexts.add(item[0])
+	allTexts.add(item[1])	
+
+possibleTelemarketers = outgoingcalls - incomingcalls - allTexts
 
 print("These numbers could be telemarketers: ")
-print('\n'.join(numberList))		
+print('\n'.join(sorted(set(possibleTelemarketers))))		
 

@@ -20,13 +20,26 @@ Print a message:
 September 2016.".
 """
 
-longest = 0
-number = 0
+
+#get all unique phone numbers using set 
+numberList = []
 
 for item in calls:
-	if longest < item[3]:
-		longest = item[3]
-		number = item[0]
+	numberList.append(item[0])
+	numberList.append(item[1])
 
-print( number + " spent the longest time, " + longest +" seconds, on the phone during September 2016.")
+#dictionary for each phone number and seconds spent
+secondsOnPhone = {}
+for number in numberList:
+	seconds = 0
+	for item in calls:
+		if number == item[0]:
+			seconds += int(item[3])
+		if number == item[1]:
+			seconds += int(item[3])
+	secondsOnPhone[number] = seconds
 
+# get the max value 
+longest = max(zip(secondsOnPhone.values(), secondsOnPhone.keys())) 		
+
+print('{} spent the longest time, {} seconds, on the phone during September 2016.'.format(longest[1], longest[0]))

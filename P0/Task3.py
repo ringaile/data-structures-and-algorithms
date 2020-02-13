@@ -45,17 +45,29 @@ to other fixed lines in Bangalore."
 The percentage should have 2 decimal digits
 """
 
-numberListBangalore = []
+receiverList = []
+foundcodes = []
 areacode = '(080)'
+telemarket = '140'
+fixed = '(0'
+
+
 for item in calls:
 	if areacode in item[0]:
-		numberListBangalore.append(item[0])
-	if areacode in item[1]:
-		numberListBangalore.append(item[1])
+		receiverList.append(item[1])
 
-numberListBangalore = list(dict.fromkeys(numberListBangalore))
+for item in receiverList:
+        if item.startswith(areacode): 
+            foundcodes.append(item[1:4])
+        elif item.startswith(telemarket): 
+            foundcodes.append(item[:3])
+        elif item.startswith(fixed): 
+            foundcodes.append(item.split('(', 1)[1].split(')')[0])
+        else:
+            foundcodes.append(item[:4])
+
 print("The numbers called by people in Bangalore have codes:")		
-print('\n'.join(numberListBangalore))
+print('\n'.join(sorted(set(foundcodes))))
 
 numberListFromBanglore = []
 numberListToBanglore = []
